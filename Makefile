@@ -1,0 +1,20 @@
+.PHONY: help install run test clean
+
+help:
+	@echo "Tracker Commands:"
+	@echo "  make install  - Install dependencies"
+	@echo "  make run      - Run server"
+	@echo "  make test     - Run tests"
+	@echo "  make clean    - Clean cache"
+
+install:
+	pip install -r requirements.txt
+
+run:
+	python server.py
+
+test:
+	python -m pytest tests/ -v
+
+clean:
+	find . -type d -name __pycache__ -exec rm -rf {} +
